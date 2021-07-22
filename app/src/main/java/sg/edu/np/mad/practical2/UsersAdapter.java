@@ -71,35 +71,6 @@ public class UsersAdapter extends RecyclerView.Adapter<UserViewHolder> {
                 }
             });
         }
-        else {
-            holder.name.setText(u.getName());
-            holder.description.setText(u.getDescription());
-            holder.view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    androidx.appcompat.app.AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setTitle("Profile")
-                            .setMessage(u.getName())
-                            .setPositiveButton("VIEW", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    Intent profile = new Intent(context, MainActivity.class);
-                                    profile.putExtra("Name", u.getName());
-                                    profile.putExtra("Description", u.getDescription());
-                                    context.startActivity(profile);
-                                }
-                            })
-                            .setNegativeButton("CLOSE", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-
-                                }
-                            });
-                    AlertDialog alertDialog = builder.create();
-                    alertDialog.show();
-                }
-            });
-        }
     }
 
     @Override
